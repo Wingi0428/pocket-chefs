@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#ff7a45" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="混亂小廚房：口袋主廚，一款原創手機料理動作遊戲。" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>混亂小廚房：口袋主廚</title>
+</head>
+<body>
+  <main id="app">
+    <section id="game-shell" aria-label="混亂小廚房遊戲">
+      <canvas id="game" width="960" height="640"></canvas>
+
+      <div id="hud" class="hud hidden" aria-live="polite">
+        <div class="hud-chip"><span>分數</span><strong id="score">0</strong></div>
+        <div class="hud-chip timer"><span>剩餘</span><strong id="time">02:30</strong></div>
+        <div class="hud-chip"><span>最高</span><strong id="best">0</strong></div>
+        <button id="pause-btn" class="icon-btn" aria-label="暫停">Ⅱ</button>
+      </div>
+
+      <div id="orders" class="orders hidden" aria-label="訂單列"></div>
+      <div id="prompt" class="prompt hidden"></div>
+      <div id="toast" class="toast" role="status"></div>
+
+      <div id="mobile-controls" class="mobile-controls hidden" aria-label="手機控制器">
+        <div id="joystick-zone" class="joystick-zone" aria-label="移動搖桿">
+          <div id="joystick-base" class="joystick-base">
+            <div id="joystick-knob" class="joystick-knob"></div>
+          </div>
+        </div>
+        <div class="action-zone">
+          <button id="dash-btn" class="action-btn dash" aria-label="衝刺">衝</button>
+          <button id="action-btn" class="action-btn action" aria-label="切菜或處理">切</button>
+          <button id="interact-btn" class="action-btn interact" aria-label="拿取或放下">拿</button>
+        </div>
+      </div>
+
+      <div id="rotate-tip" class="rotate-tip">
+        <div class="phone-icon">↻</div>
+        <strong>請將手機橫向使用</strong>
+        <span>橫向畫面會更好操作</span>
+      </div>
+
+      <section id="start-screen" class="overlay visible">
+        <div class="panel hero-panel">
+          <div class="brand-mark">🍳</div>
+          <p class="eyebrow">ORIGINAL MOBILE COOKING GAME</p>
+          <h1>混亂小廚房<br><span>口袋主廚</span></h1>
+          <p class="lead">接單、備料、熬湯、裝盤、出餐。兩分半內把廚房忙出最高分！</p>
+          <div class="feature-row">
+            <span>📱 手機觸控</span><span>🤖 AI 小幫手</span><span>💾 自動存分</span>
+          </div>
+          <button id="start-btn" class="primary-btn">開始營業</button>
+          <button id="how-btn" class="secondary-btn">玩法說明</button>
+          <p class="tiny-note">桌機：WASD／方向鍵移動，E 拿取，空白鍵切菜，Shift 衝刺。</p>
+        </div>
+      </section>
+
+      <section id="tutorial-screen" class="overlay">
+        <div class="panel tutorial-panel">
+          <h2>三步上菜</h2>
+          <div class="tutorial-grid">
+            <article><b>1</b><span class="big-emoji">🥕</span><h3>備料</h3><p>到食材箱拿材料，放到砧板後長按「切」。</p></article>
+            <article><b>2</b><span class="big-emoji">🍲</span><h3>烹煮</h3><p>把三份切好的相同食材放進鍋中，等待煮熟。</p></article>
+            <article><b>3</b><span class="big-emoji">🔔</span><h3>出餐</h3><p>拿盤子盛湯，再送到右側出餐鈴，越快分數越高。</p></article>
+          </div>
+          <div class="tip-box">AI 助手會依照第一張訂單，定期送一份切好的食材到下方托盤。</div>
+          <button id="tutorial-close" class="primary-btn">知道了</button>
+        </div>
+      </section>
+
+      <section id="pause-screen" class="overlay">
+        <div class="panel compact-panel">
+          <h2>暫停營業</h2>
+          <button id="resume-btn" class="primary-btn">繼續</button>
+          <button id="restart-btn" class="secondary-btn">重新開始</button>
+          <button id="home-btn" class="ghost-btn">回到首頁</button>
+        </div>
+      </section>
+
+      <section id="end-screen" class="overlay">
+        <div class="panel compact-panel results-panel">
+          <p class="eyebrow">CLOSING TIME</p>
+          <h2>今日打烊！</h2>
+          <div id="stars" class="stars">☆☆☆</div>
+          <div class="result-score"><span>本局分數</span><strong id="final-score">0</strong></div>
+          <p id="result-message">廚房熱身完成！</p>
+          <button id="play-again-btn" class="primary-btn">再玩一局</button>
+          <button id="end-home-btn" class="secondary-btn">回到首頁</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>

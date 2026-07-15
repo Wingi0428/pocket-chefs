@@ -1,0 +1,15 @@
+{
+  "name": "混亂小廚房：口袋主廚",
+  "short_name": "口袋主廚",
+  "description": "原創手機料理動作遊戲",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#1f293d",
+  "theme_color": "#ff7a45",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
